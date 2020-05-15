@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+   
+    "name": "Youtube Genius",
+    "version": "1.0",
+    "description": "Search Lyrics of YouTube Videos on Genius",
+   
+    "content_scripts": [{
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "matches": ["https://www.youtube.com/*"]
+    }]
+   
+  }
