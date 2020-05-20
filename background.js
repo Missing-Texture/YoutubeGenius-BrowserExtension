@@ -4,20 +4,20 @@ const url='https://api.genius.com/search?q=';
 browser.browserAction.onClicked.addListener(handleClick);
 
 function handleClick() {
-    console.log("clicked");
+    //console.log("clicked");
     browser.tabs.executeScript({
         file: "./content.js",
-    })
-    .then(onExecuted);
-    
+    })    
 };
 
-function onExecuted(result) {
-    console.log("received: "+ result)
+browser.runtime.onMessage.addListener(onExecuted)
 
-    fetch(url+encodeURI(result), {
+function onExecuted(result) {
+    //console.log("received: "+ result.query)
+
+    fetch(url+encodeURI(result.query), {
         method : 'GET',
-        mode: 'cors',
+        //mode: 'cors',
         headers : {
             'Authorization': caToken,
         }

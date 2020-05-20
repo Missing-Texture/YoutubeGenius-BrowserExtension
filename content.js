@@ -1,5 +1,8 @@
-console.log("Content Script geladen")
+console.log("Content Script injected")
 
-let title = document.querySelector('.title').firstElementChild.innerHTML;
-let trimmed = title.split('(')[0]; 
-trimmed; // needed to pass let as return Value to background.js 
+//let title = document.querySelector('.title').firstElementChild.innerHTML;
+//let trimmed = title.split('(')[0]; 
+
+browser.runtime.sendMessage({
+    query: document.querySelector('.title').firstElementChild.innerHTML.split('(')[0]
+})
