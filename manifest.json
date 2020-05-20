@@ -5,11 +5,19 @@
     "version": "1.0",
     "description": "Search Lyrics of YouTube Videos on Genius",
 
-    "permissions": ["tabs","https://api.genius.com/*", "webRequest"],
-   
-    "content_scripts": [{
-      "css": ["styles.css"],
-      "js": ["content.js"],
-      "matches": ["https://www.youtube.com/*"]
-    }]
+    "permissions": [
+      "tabs",
+      "https://api.genius.com/*", 
+      "webRequest",
+      "activeTab"
+    ],
+
+    "browser_action": {
+      "default_icon": "./geniusIcon.png",
+      "default_title": "Whereami?"
+    },
+
+    "background": {
+      "scripts": ["background.js"]
+    }
   }
