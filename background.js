@@ -4,7 +4,6 @@ const url='https://api.genius.com/search?q=';
 browser.browserAction.onClicked.addListener(handleClick);
 
 function handleClick() {
-    //console.log("clicked");
     browser.tabs.executeScript({
         file: "./content.js",
     })    
@@ -13,19 +12,17 @@ function handleClick() {
 browser.runtime.onMessage.addListener(onExecuted)
 
 function onExecuted(result) {
-    //console.log("received: "+ result.query)
-
     fetch(url+encodeURI(result.query), {
         method : 'GET',
-        //mode: 'cors',
         headers : {
             'Authorization': caToken,
         }
     })
     .then(data=>{return data.json()})
     .then(result=>{return result.response.hits[0].result.url})
-    .then(url=>{browser.tabs.create({
-        url: url
-    })})
-    .catch(error => console.log('error', error));
+    .then(url=>{browser.tabs.create({url: url})})
+    .catch(error => {
+        browser.tabs.executeScript({file: "./alert.js"});
+        console.log('error', error)
+    });
 }

@@ -1,20 +1,18 @@
 {
     "manifest_version": 2,
    
-    "name": "Youtube Genius",
+    "name": "Youtube Genius Search",
     "version": "1.0",
     "description": "Search Lyrics of YouTube Videos on Genius",
 
     "permissions": [
-      "tabs",
-      "https://api.genius.com/*", 
-      "webRequest",
-      "activeTab"
+      "activeTab",
+      "https://api.genius.com/*"
     ],
 
     "browser_action": {
-      "default_icon": "./geniusIcon.png",
-      "default_title": "Whereami?"
+      "default_icon": "./icon.png",
+      "default_title": "Search Lyrics on Genius"
     },
 
     "background": {
