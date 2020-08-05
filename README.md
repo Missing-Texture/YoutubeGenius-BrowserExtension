@@ -7,8 +7,6 @@ Adds a button to your browser toolbar. When clicked it searches the title of the
 
 
 ## Comaptibility
-Currently only working on Linux<br>
-Windows Version of genius.com not supported
 
 Currently only working with browsers build on Firefox
 
